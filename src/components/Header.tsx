@@ -16,15 +16,19 @@ const Header = () => {
 
           <div className="flex items-center gap-6">
             <Link
-              href="/"
+              href="https://github.com/Mel28vin/generate-intro"
               className="inline-flex gap-1 no-underline text-md items-center active:underline active:font-semibold"
+              target="_blank"
+              rel="noreferrer"
             >
               <IoLogoGithub size={22} />
               <div className="hidden sm:block">Source</div>
             </Link>
             <Link
-              href="/"
+              href="https://www.linkedin.com/in/melvin-jebasamuel/"
               className="inline-flex gap-1 no-underline text-md items-center active:underline active:font-semibold"
+              target="_blank"
+              rel="noreferrer"
             >
               <IoLogoLinkedin size={22} />{" "}
               <div className="hidden sm:block">About me</div>
