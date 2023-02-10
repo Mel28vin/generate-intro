@@ -1,5 +1,4 @@
 "use client"
-import type { NextPage } from "next"
 import { useState } from "react"
 import { Toaster, toast } from "react-hot-toast"
 import { AnimatePresence, motion } from "framer-motion"
@@ -9,7 +8,7 @@ import Footer from "@/components/Footer"
 import LoadingDots from "@/components/LoadingDots"
 import ResizablePanel from "@/components/ResizablePanel"
 
-const Home: NextPage = () => {
+const Home = () => {
   const [loading, setLoading] = useState(false)
   const [bio, setBio] = useState("")
   const [vibe, setVibe] = useState<VibeType>("Professional")
