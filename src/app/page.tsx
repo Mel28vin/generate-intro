@@ -29,7 +29,8 @@ const Home = () => {
     e.preventDefault()
     setGeneratedBios("")
     setLoading(true)
-    const response = await fetch("/api/generate", {
+    console.log("Edge function started.")
+    const response = await fetch("/api/gen", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,21 +45,24 @@ const Home = () => {
       throw new Error(response.statusText)
     }
 
-    const data = response.body
-    if (!data) {
-      return
-    }
+    // const data = response.body
+    // if (!data) {
+    //   return
+    // }
+    //
+    // const reader = data.getReader()
+    // const decoder = new TextDecoder()
+    // let done = false
+    //
+    // while (!done) {
+    //   const { value, done: doneReading } = await reader.read()
+    //   done = doneReading
+    //   const chunkValue = decoder.decode(value)
+    //   setGeneratedBios((prev) => prev + chunkValue)
+    // }
 
-    const reader = data.getReader()
-    const decoder = new TextDecoder()
-    let done = false
-
-    while (!done) {
-      const { value, done: doneReading } = await reader.read()
-      done = doneReading
-      const chunkValue = decoder.decode(value)
-      setGeneratedBios((prev) => prev + chunkValue)
-    }
+    let answer = await response.json()
+    setGeneratedBios(answer.choices[0].text)
 
     setLoading(false)
   }

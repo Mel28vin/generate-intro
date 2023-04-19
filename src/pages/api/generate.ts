@@ -9,11 +9,13 @@ export const config = {
 }
 
 const handler = async (req: Request): Promise<Response> => {
+  // console.log("Handler")
   const { prompt } = (await req.json()) as {
     prompt?: string
   }
 
   if (!prompt) {
+    console.log("No prompt")
     return new Response("No prompt in the request", { status: 400 })
   }
 
@@ -28,6 +30,7 @@ const handler = async (req: Request): Promise<Response> => {
     stream: true,
     n: 1,
   }
+  console.log("0Handler")
 
   const stream = await OpenAIStream(payload)
   return new Response(stream)
